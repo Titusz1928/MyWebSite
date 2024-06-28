@@ -1,0 +1,33 @@
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+        <mat-icon class="icon" aria-hidden="false" aria-label="Info">assignment</mat-icon>
+        <mat-card-title>{{project.title}}</mat-card-title>
+        <mat-card-subtitle>{{project.maintag}}</mat-card-subtitle>
+        {{ project?.latestUpdate | date: 'yyyy/MM/dd' }}
+    </mat-card-header>
+    <hr>
+    <div class="main-image">
+        <img mat-card-image src={{project.image}} alt="Photo">
+      </div>
+      <mat-paginator [length]="nrOfImages"
+      [pageSize]="1"
+      (page)="pageChanged($event)"
+      aria-label="Select image">
+</mat-paginator>
+      <div>
+        <hr>
+        <div class="description">
+        {{project?.description}}
+        </div>
+        <br>
+        <a *ngIf="project.link!=''" href={{project.link}}>Find out more</a>
+        <br>
+        <mat-chip-list>
+          <mat-chip *ngFor="let tag of project.tags" [selectable]="false">
+            {{ tag }}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <router-outlet></router-outlet>
+  </mat-card>
+  

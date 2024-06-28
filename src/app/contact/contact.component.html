@@ -1,0 +1,27 @@
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+        <mat-icon class="icon" aria-hidden="false" aria-label="Info">contact_mail</mat-icon>
+        <mat-card-title>Contact me</mat-card-title>
+    </mat-card-header>
+    <hr>
+    <div class="main-image">
+        <mat-card-content>
+            <mat-chip-list>
+                <ng-container *ngTemplateOutlet="chipTemplate; context: {href: 'https://github.com/Titusz1928', imgSrc: 'assets/logos/github.png', altText: 'Github', chipText: 'Github'}"></ng-container>
+                <ng-container *ngTemplateOutlet="chipTemplate; context: {href: 'https://www.linkedin.com/in/titusz-boros-970a9725a/', imgSrc: 'assets/logos/linked.png', altText: 'LinkedIn', chipText: 'LinkedIn'}"></ng-container>
+              </mat-chip-list>
+              
+              <ng-template #chipTemplate let-href="href" let-imgSrc="imgSrc" let-altText="altText" let-chipText="chipText">
+                <a [href]="href" target="_blank">
+                  <mat-chip>
+                    <img matChipAvatar [src]="imgSrc" [alt]="altText" />
+                    {{ chipText }}
+                  </mat-chip>
+                </a>
+              </ng-template>
+              <hr>
+              <p>{{email}}</p>
+        </mat-card-content>
+      </div>
+  </mat-card>
+  

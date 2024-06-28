@@ -1,0 +1,22 @@
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+        <mat-icon class="icon" aria-hidden="false" aria-label="Info">info</mat-icon>
+        <mat-card-title>About me</mat-card-title>
+        <mat-card-subtitle>Introduction</mat-card-subtitle>
+    </mat-card-header>
+    <hr>
+    <div class="main-image">
+        <mat-card-content>
+          <h1 class="hello-text">Hello</h1>
+          <br>
+          <p >{{description}}</p>
+        </mat-card-content>
+        <img mat-card-image src="assets/about.png" alt="Photo">
+      </div>
+    <mat-card-actions>
+        <button routerLink="education" type="button" class="btn btn-primary" mat-button>Education</button>
+        <button routerLink="skills" type="button" class="btn btn-primary" mat-button>Skills</button>
+      </mat-card-actions>
+      <router-outlet></router-outlet>
+  </mat-card>
+  
