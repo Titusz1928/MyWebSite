@@ -36,6 +36,8 @@ import { CvComponentComponent } from './cv-component/cv-component.component';
 import { ContactComponent } from './contact/contact.component';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -76,7 +78,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSelectModule,
     FormsModule,
     MatSnackBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

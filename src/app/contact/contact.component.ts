@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NetlifyFormsService } from '../netlify-forms/netlify-forms.service';
 
 @Component({
   selector: 'cvapp-contact',
@@ -9,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(private elementRef:ElementRef, private snackBar: MatSnackBar, private formBuilder: FormBuilder) { }
+  constructor(private elementRef:ElementRef, private snackBar: MatSnackBar, private formBuilder: FormBuilder, private netlifyForms: NetlifyFormsService) { }
 
   contactForm!: FormGroup;
 
@@ -32,15 +33,28 @@ export class ContactComponent implements OnInit {
 
   durationInSeconds=3;
 
+  errorMsg="error";
+
   openSnackBar() {
     if (this.contactForm.valid) {
-      this.contactForm.reset();
-      this.snackBar.open('Message sent!', 'DISCARD');
+      this.snackBar.open('Message sent!', 'CLOSE');
     } else {
-      this.snackBar.open('Error!', 'DISCARD');
+      this.snackBar.open('Error!', 'CLOSE');
       // Optionally handle invalid form case
       // For example, display an error message or do not reset the form
     }
+    this.netlifyForms.submitContact(this.contactForm.value).subscribe(
+      () => {
+        this.contactForm.reset();
+        console.log("ok");
+      },
+      err => {
+        this.errorMsg = err;
+        console.log(this.errorMsg);
+      }
+    );
+
+
   }
 
 }

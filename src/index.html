@@ -11,6 +11,12 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="mat-typography">
+
+  <form name="contactForm" netlify netlify-honeypot="bot-field" hidden>
+    <input type="email" name="email"/>
+    <textarea name="comment"></textarea>
+  </form>
+
   <cvapp-root></cvapp-root>
 </body>
 </html>
