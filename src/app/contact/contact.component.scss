@@ -1,54 +1,61 @@
-
 .example-card {
-    max-width: 1200px;
-    margin: 0 auto;
-    border: 5px solid rgba(133, 130, 130, 0.9);
-    margin-bottom: 20px;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 5px solid rgba(133, 130, 130, 0.9);
+  margin-bottom: 20px;
+}
 
-  .custom-card-header {
-    display: flex;
-    flex-direction: row; /* Ensure items are laid out in a row */
-    align-items: center; /* Align items vertically in the center */
-  }
-  
-  .custom-card-header mat-icon {
-    margin-right: 40px; /* Adjust spacing between icon and text */
-  }
+.custom-card-header {
+  display: flex;
+  flex-direction: row; /* Ensure items are laid out in a row */
+  align-items: center; /* Align items vertically in the center */
+}
 
-  .mat-card-title{
-    font-size: 25px;
-  }
+.custom-card-header mat-icon {
+  margin-right: 40px; /* Adjust spacing between icon and text */
+}
 
-  .mat-card-subtitle{
-    font-size: 20px;
-  }
+.mat-card-title {
+  font-size: 25px;
+}
 
-  .header-content{
-    margin-left: 10px;
-  }
+.mat-card-subtitle {
+  font-size: 20px;
+}
 
-  .example-card mat-card-header mat-icon.icon {
-    font-size: 30px;
-    margin-left: auto; /* Push the icon to the right */
-    margin-right: 10px; /* Add a small margin between icon and text */
-  }
-  
-  .main-image {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Space between image and description */
-    padding: 20px; /* Adds padding around the image and description */
-    border: 10px solid rgba(63, 62, 62, 0.9); /* Adds a thick white border */
-  }
-  
-  .main-image img {
-    max-width: 50%; /* Adjust image width as needed */
-    height: auto; /* Maintains aspect ratio */
-  }
+.header-content {
+  margin-left: 10px;
+}
 
-  .mat-card-content {
-    width: 45%; /* Adjust description width as needed */
-  }
-  
-  
+.example-card mat-card-header mat-icon.icon {
+  font-size: 30px;
+  margin-left: auto; /* Push the icon to the right */
+  margin-right: 10px; /* Add a small margin between icon and text */
+}
+
+.main-image {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between image and description */
+  padding: 20px; /* Adds padding around the image and description */
+  border: 10px solid rgba(63, 62, 62, 0.9); /* Adds a thick white border */
+}
+
+.main-image img {
+  max-width: 50%; /* Adjust image width as needed */
+  height: auto; /* Maintains aspect ratio */
+}
+
+.mat-card-content {
+  width: 100%; /* Adjust description width as needed */
+}
+
+/* Ensure full width for input fields and textarea */
+.example-full-width {
+  width: 100%;
+}
+
+/* Make sure the textarea takes up more vertical space */
+.mat-form-field textarea {
+  min-height: 150px; /* Adjust height as needed */
+}

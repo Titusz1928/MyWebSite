@@ -1,27 +1,44 @@
 <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-        <mat-icon class="icon" aria-hidden="false" aria-label="Info">contact_mail</mat-icon>
-        <mat-card-title>Contact me</mat-card-title>
-    </mat-card-header>
-    <hr>
-    <div class="main-image">
-        <mat-card-content>
-            <mat-chip-list>
-                <ng-container *ngTemplateOutlet="chipTemplate; context: {href: 'https://github.com/Titusz1928', imgSrc: 'assets/logos/github.png', altText: 'Github', chipText: 'Github'}"></ng-container>
-                <ng-container *ngTemplateOutlet="chipTemplate; context: {href: 'https://www.linkedin.com/in/titusz-boros-970a9725a/', imgSrc: 'assets/logos/linked.png', altText: 'LinkedIn', chipText: 'LinkedIn'}"></ng-container>
-              </mat-chip-list>
-              
-              <ng-template #chipTemplate let-href="href" let-imgSrc="imgSrc" let-altText="altText" let-chipText="chipText">
-                <a [href]="href" target="_blank">
+  <mat-card-header>
+      <mat-icon class="icon" aria-hidden="false" aria-label="Info">contact_mail</mat-icon>
+      <mat-card-title>Contact me</mat-card-title>
+      <mat-card-subtitle>Through social media, email or right here</mat-card-subtitle>
+  </mat-card-header>
+  <hr>
+  <div class="main-image">
+      <mat-card-content>
+          <p>{{email}}</p>
+          <mat-chip-list>
+              <ng-container *ngTemplateOutlet="chipTemplate; context: {href: 'https://github.com/Titusz1928', imgSrc: 'assets/logos/github.png', altText: 'Github', chipText: 'Github'}"></ng-container>
+              <ng-container *ngTemplateOutlet="chipTemplate; context: {href: 'https://www.linkedin.com/in/titusz-boros-970a9725a/', imgSrc: 'assets/logos/linked.png', altText: 'LinkedIn', chipText: 'LinkedIn'}"></ng-container>
+          </mat-chip-list>
+
+          <ng-template #chipTemplate let-href="href" let-imgSrc="imgSrc" let-altText="altText" let-chipText="chipText">
+              <a [href]="href" target="_blank">
                   <mat-chip>
-                    <img matChipAvatar [src]="imgSrc" [alt]="altText" />
-                    {{ chipText }}
+                      <img matChipAvatar [src]="imgSrc" [alt]="altText" />
+                      {{ chipText }}
                   </mat-chip>
-                </a>
-              </ng-template>
-              <hr>
-              <p>{{email}}</p>
-        </mat-card-content>
-      </div>
-  </mat-card>
-  
+              </a>
+          </ng-template>
+          <hr>
+          <form name="contact" method="post" netlify>
+            <!-- Honeypot Field -->
+            <!-- <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off"> -->
+            
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput name="email" type="email" required>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Leave a comment</mat-label>
+                <textarea matInput name="comment" placeholder="Ex. It makes me feel..." required></textarea>
+            </mat-form-field>
+            <p>
+                <button class="btn btn-primary" type="submit">Send</button>
+            </p>
+        </form>
+      </mat-card-content>
+  </div>
+</mat-card>

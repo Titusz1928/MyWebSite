@@ -37,6 +37,14 @@ export class ProjectsCardComponent implements OnInit {
 
   sortByOption: string = '';
 
+  randomizeProjects():void{
+    for (let i = this.projectList.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this.projectList[i], this.projectList[j]] = [this.projectList[j], this.projectList[i]];
+    }
+    this.projectList = [...this.projectList]; 
+  }
+
   sortProjects(): void {
     if (this.sortByOption === 'option0') {
       // Sort by id

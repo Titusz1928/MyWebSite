@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DarkmodeService } from './services/darkmode.service';
 
 @Component({
   selector: 'cvapp-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cvprojectapp';
+
+  constructor(public darkModeService: DarkmodeService){
+
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode();
+  }
 }

@@ -19,7 +19,7 @@ const TREE_DATA: FoodNode[] = [
   },
   {
     name: 'Courses/Concepts/Other',
-    children:[{name:'Databases, Cybersecurity, Machine Learning, Concurrent Programming, Web/Mobile development, Networks'}]
+    children:[{name:'Databases, Cybersecurity, Machine Learning, Concurrent Programming, Web/Mobile development, Computer Networks'}]
   }
 ];
 

@@ -1,10 +1,4 @@
-<div class="card" id="infoCard">
-  <!-- <mat-chip>
-    <img
-      matChipAvatar
-      src="assets/logo.png"
-      alt="Photo"
-    />
-  </mat-chip> -->
-  <p class="info"> © 2024 {{info}}</p>
+<div class="card" id="infoCard" [ngClass]="activeThemeClass">
+  <!-- <p><mat-slide-toggle (change)="toggleDarkMode()">Dark Mode</mat-slide-toggle></p> -->
+  <p class="info">© 2024 {{info}}</p>
 </div>

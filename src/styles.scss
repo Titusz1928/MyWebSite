@@ -1,5 +1,13 @@
 //@import '~/bootstrap/dist/css/bootstrap.min.css'
 
-body {
-    background-color: hsl(0, 0%, 95%); /* Replace with your desired background color */
-  }
+.light-mode {
+  /* Define your light mode styles */
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.dark-mode {
+  /* Define your dark mode styles */
+  background-color: #333333;
+  color: #ffffff;
+}

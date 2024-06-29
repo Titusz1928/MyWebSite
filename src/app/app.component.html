@@ -1,3 +1,5 @@
 <cvapp-top-navigation-bar></cvapp-top-navigation-bar>
 <!-- <cvapp-card-container></cvapp-card-container> -->
- <router-outlet></router-outlet>
+ <div [class.dark-mode]="darkModeService.darkMode">
+ <router-outlet ></router-outlet>
+ </div>

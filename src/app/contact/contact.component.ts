@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'cvapp-contact',
@@ -20,4 +21,5 @@ export class ContactComponent implements OnInit {
     //   window.scrollBy(0, -1);
     // }, 300); 
   }
+
 }
