@@ -22,23 +22,22 @@
               </a>
           </ng-template>
           <hr>
-          <form name="contact" method="post" netlify>
-            <!-- Honeypot Field -->
-            <!-- <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off"> -->
-            
+          <form [formGroup]="contactForm" name="contact" netlify>
+            <!-- {{contactForm.value| json}}
+            {{contactForm.invalid}} -->
             <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input matInput name="email" type="email" required>
+              <mat-label>Email</mat-label>
+              <input matInput name="email" formControlName="email" type="email" required>
             </mat-form-field>
             <br>
             <mat-form-field class="example-full-width">
-                <mat-label>Leave a comment</mat-label>
-                <textarea matInput name="comment" placeholder="Ex. It makes me feel..." required></textarea>
+              <mat-label>Leave a comment</mat-label>
+              <textarea matInput name="comment" formControlName="comment"  placeholder="..." required></textarea>
             </mat-form-field>
             <p>
-                <button class="btn btn-primary" type="submit">Send</button>
+              <button class="btn btn-primary" type="submit" [disabled]="contactForm.invalid" mat-stroked-button (click)="openSnackBar()" aria-label="Message sent">Send</button>
             </p>
-        </form>
+          </form>
       </mat-card-content>
   </div>
 </mat-card>

@@ -31,10 +31,11 @@ import {MatTableModule} from '@angular/material/table';
 import { ProjectDetailComponent } from './projects-card/project-detail/project-detail.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CvComponentComponent } from './cv-component/cv-component.component';
 import { ContactComponent } from './contact/contact.component';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,8 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
     MatPaginatorModule,
     MatSelectModule,
     FormsModule,
+    MatSnackBarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
