@@ -28,7 +28,7 @@ export class ProjectService {
       link: "https://github.com/Titusz1928/PS2N.git",
       maintag: "Web",
       tags: ["Java","SpringBoot", "Python", "Flask", "Arduino", "C++","Concurrent Programming"],
-      images: [],
+      images: ['assets/projects/ps2.png','assets/projects/ps2-2.PNG','assets/projects/ps2-3.PNG','assets/projects/ps2-4.PNG'],
       latestUpdate: new Date(2024, 4, 21),
     },
     {
@@ -142,8 +142,8 @@ export class ProjectService {
     {
       id: 12,
       title: "License Plate recognition",
-      shortdescription:"This program,  with the help of the yolo and easyocr libraries, first it finds on an image the area where a license plate coul be located, and then it reads the letters and symbols from that area",
-      description: "We made this application as part of the course \"Machine Learning Track - Real-time vehicle license plate number detection\", by Veoneer. This program,  with the help of the yolo and easyocr libraries, first finds on an image the area where a license plate coul be located, and then it reads the letters and symbols from that area. It introuced me to machine learning and very helpful python libraries.",
+      shortdescription:"Machine learning project, part of the course \"Machine Learning Track - Real-time vehicle license plate number detection",
+      description: "We made this application as part of the course \"Machine Learning Track - Real-time vehicle license plate number detection\", by Veoneer. This program,  with the help of the yolo and easyocr libraries, first finds on an image the area where a license plate could be located, and then it reads the letters and symbols from that area. It introuced me to machine learning and very helpful python libraries.",
       image: "assets/projects/lpr.PNG",
       link:'',
       maintag: "Program",
@@ -174,6 +174,30 @@ export class ProjectService {
       tags: ["C","SDL2"],
       images: [],
       latestUpdate: new Date(2024, 5, 5),
+    },
+    {
+      id: 15,
+      title: "Arduino Visualizer",
+      shortdescription:"Project for displaying data from the eeprom of an arduino in a graphical format. You can create images, save and edit them and upload them to your arduino.",
+      description: "When working on my second syncretic project we had as a requirement to save messages to the eeprom of an arduino, and then I got the idea to save other data such as images on it. It eventually became another project. First I created the operations needed to save and upload data to an arduino, these needed both the Arduino to execute a script and for a python script to run. Then I combined these into a full web project with the help of flask, adn also added a way to create images, display, save and edit them. For more information on how you can try out this follow the link below.",
+      image: "assets/projects/aiv-1.png",
+      link:'https://github.com/Titusz1928/ArduinoVisualizer',
+      maintag: "Web",
+      tags: ["Python","Flask","Arduino"],
+      images: ["assets/projects/aiv-1.png","assets/projects/aiv-2.png"],
+      latestUpdate: new Date(2024, 6, 4),
+    },
+    {
+      id: 16,
+      title: "Food app",
+      shortdescription:"This angular website is useful for deciding what food to make,this was the first time i used a database for a static website.",
+      description: "Lately I have been creating a lot of website so I think this will be the last for a few months but this one is actually useful. With this website I can store what foods I ate and it can help me decide what I have not eaten in a long time. I used Angular again, and for the data storage I used Supabase which is practically a databaset that I can communicate with as an API.",
+      image: "assets/projects/fda-1.png",
+      link:'https://github.com/Titusz1928/foodApp',
+      maintag: "Web",
+      tags: ["Angular","Supabase"],
+      images: ["assets/projects/fda-1.png","assets/projects/fda-2.png","assets/projects/fda-3.png"],
+      latestUpdate: new Date(2024, 6, 13),
     }
   ];
 

@@ -24,7 +24,7 @@
               </mat-chip>
             </mat-chip-list>
             <br>
-            <a href="{{ project.link }}">Link</a>
+            <a href="{{ project.link }}" *ngIf="project.link!=''">Link</a>
           </mat-card-content>
         </mat-card>
       </ng-container>

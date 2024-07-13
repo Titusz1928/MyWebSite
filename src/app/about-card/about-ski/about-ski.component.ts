@@ -11,7 +11,7 @@ interface FoodNode {
 const TREE_DATA: FoodNode[] = [
   {
     name: 'Programming Languages/Frameworks/Libraries',
-    children: [{name: 'C, C++, C#, SDL2, Arduino'}, {name: 'Java, Spring Boot, Hibernate, Android, Kotlin'}, {name: 'Python, Flask'},{name:'Php, Javascript,Typescript,Angular'},{name:'Pascal'},{name: 'Oracle SQL, MySql'}, {name: 'Matlab, VHDL, Shell script, Assembly'}],
+    children: [{name: 'C, C++, C#, SDL2, Arduino'}, {name: 'Java, Spring Boot, Hibernate, Android, Kotlin'}, {name: 'Python, Flask'},{name:'Php, Javascript,Typescript,Angular, Supabase'},{name:'Pascal'},{name: 'Oracle SQL, MySql, PostgreSQL'}, {name: 'Matlab, VHDL, Shell script, Assembly'}],
   },
   {
     name: 'IDEs/Programms/Websites',
