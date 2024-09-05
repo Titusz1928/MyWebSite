@@ -23,8 +23,8 @@ export class CvComponentComponent implements OnInit {
   downloadPDF(): void {
     const link = document.createElement('a');
     link.setAttribute('target', '_blank');
-    link.setAttribute('href', 'assets/pdf/Boros_Titusz_CV_ENG_2024_07.pdf'); // Replace with your PDF file path
-    link.setAttribute('download', 'Boros_Titusz_CV_ENG_2024_07.pdf');
+    link.setAttribute('href', 'assets/pdf/BorosTitusz_CV_ENG_2024_09.pdf'); // Replace with your PDF file path
+    link.setAttribute('download', 'BorosTitusz_CV_ENG_2024_09.pdf');
     document.body.appendChild(link);
     link.click();
     link.remove();

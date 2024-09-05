@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { SupabaseService } from 'src/app/services/supabase.service';
 
 @Component({
   selector: 'cvapp-project-detail',
@@ -14,7 +15,8 @@ export class ProjectDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    private supabaseService:SupabaseService
   ) {}
 
   ngOnInit(): void {
@@ -22,12 +24,22 @@ export class ProjectDetailComponent implements OnInit {
       .pipe(
         switchMap(params => {
           const id = +(params.get('id') ?? 0); // Get the id from the route parameters and convert it to a number
-          return this.projectService.getProjectById(id);
+          return this.supabaseService.getProjectById(id);
         })
       )
       .subscribe(project => {
-        this.project = project; // Assign project to this.project
-        this.nrOfImages = this.project.images.length; // Update nrOfImages inside the subscribe callback
+        // Convert latestupdate to a Date object if it exists
+        if (project && project.latestupdate) {
+          this.project = {
+            ...project,
+            latestUpdate: new Date(project.latestupdate) // Convert string to Date object
+          };
+        } else {
+          this.project = project;
+        }
+  
+        console.log("Project:", this.project);
+        this.nrOfImages = this.project?.images?.length || 0; // Update nrOfImages inside the subscribe callback
       });
   }
 

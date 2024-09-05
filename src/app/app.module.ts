@@ -11,6 +11,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
 import { AboutEduComponent } from './about-card/about-edu/about-edu.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 // Import Angular Material modules
 import { MatButtonModule } from '@angular/material/button';
@@ -36,7 +37,6 @@ import { CvComponentComponent } from './cv-component/cv-component.component';
 import { ContactComponent } from './contact/contact.component';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -56,6 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     BottomBarComponent,
   ],
   imports: [
+    HttpClientModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule,
@@ -78,8 +79,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     FormsModule,
     MatSnackBarModule,
-    ReactiveFormsModule,
-    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

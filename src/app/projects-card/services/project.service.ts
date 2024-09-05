@@ -6,7 +6,7 @@ import { Project } from '../project';
   providedIn: 'root'
 })
 export class ProjectService {
-  private projectList:Project[]= [
+  private projectList:Project[]=[]/*= [
     {
       id: 1,
       title: "IP Mobile Application",
@@ -198,14 +198,27 @@ export class ProjectService {
       tags: ["Angular","Supabase"],
       images: ["assets/projects/fda-1.png","assets/projects/fda-2.png","assets/projects/fda-3.png"],
       latestUpdate: new Date(2024, 6, 13),
+    },{
+      id: 17,
+      title: "Networking Project",
+      shortdescription: "I was working on this project during my internship at Savnet Academy",
+      description: "This project involved creating a physical network, firstly my team, consisting of 6 people, configured the network devices. These were 4 routers, 4 switches, and a multilayer switch. We implemented VLANs and DHCP to generate ip addresses for the end-devices. We also set up ACL, and NAT to provide a basic network security. After this we connected our network to a virtual network with GNS3 and connected to theinternet so that our devices would be accessible wireless. After this we tested and implemented security against various attacks, Network scanning, Dos, Mitm and also tried out more dangerous attacks with malware and ransomware. We could even access the camera of the victim. I really enjoyed working on this project and my knowledge about networking greatly increased.",
+      image:"assets/projects/nwp1.png",
+      link:'https://github.com/Titusz1928/Savnet_network_proiect',
+      maintag:"Network",
+      tags:["Network","Group","GNS3"],
+      images:[],
+      latestUpdate: new Date(2024,8,4),
     }
-  ];
+  ];*/
 
   getAllProjects(){
+    console.log("WARNING");
     return this.projectList;
   }
 
   getProjectById(id: number): Observable<any> {
+    console.log("WARNING");
     const project = this.projectList.find(project => project.id === id);
     return of(project);
   }

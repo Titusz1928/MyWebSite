@@ -61,7 +61,7 @@
           <!-- Define your columns -->
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef> No. </th>
-            <td mat-cell *matCellDef="let project; let i = index"> {{ i + 1 }} </td>
+            <td mat-cell *matCellDef="let project; let i = index"> {{ project.id }} </td>
             <!-- Use 'let i = index' to get the row index -->
           </ng-container>
           
