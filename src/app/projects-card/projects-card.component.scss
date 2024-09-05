@@ -99,3 +99,22 @@
   }
   
 }
+
+
+/* Default chip styles */
+mat-chip {
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:host ::ng-deep mat-chip.deselected {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+:host ::ng-deep mat-chip.selected {
+  background-color: #007bff !important;
+  color: white !important;
+  border: 1px solid rgba(25, 26, 78, 0.925) !important;
+}

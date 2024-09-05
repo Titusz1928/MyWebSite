@@ -8,7 +8,8 @@ export class SupabaseService {
   private supabase: SupabaseClient;
 
   constructor() {
-    this.supabase = createClient('', '');}
+    this.supabase = createClient('', '');
+  }
 
   async getProjects() {
     const { data, error } = await this.supabase
@@ -37,6 +38,30 @@ export class SupabaseService {
       throw new Error(error.message);
     }
     return data;
+  }
+
+  async getUniqueMaintags(): Promise<string[]> {
+    const { data, error } = await this.supabase
+      .rpc('get_unique_maintags');
+
+    if (error) {
+      console.error('Error fetching maintags:', error);
+      throw new Error(error.message);
+    }
+
+    return data.map((item: any) => item.maintag);
+  }
+
+  async getUniqueTags(): Promise<string[]> {
+    const { data, error } = await this.supabase
+      .rpc('get_unique_tags');
+
+    if (error) {
+      console.error('Error fetching tags:', error);
+      throw new Error(error.message);
+    }
+
+    return data.map((item: any) => item.tag);
   }
 
 }

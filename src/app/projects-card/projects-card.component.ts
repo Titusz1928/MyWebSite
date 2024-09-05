@@ -10,8 +10,15 @@ import { SupabaseService } from '../services/supabase.service';
 export class ProjectsCardComponent implements OnInit {
 
   projectList: any[] = []; // Initialize an empty array for project data
+  projectTagList:any[]=[];
   displayedColumns: string[] = ['id', 'title', 'latestUpdate'];
   sortByOption: string = '';
+
+  maintags: string[] = [];
+  tags: string[] = [];
+
+  isTagPanelOpen:Boolean=false;
+  selectedTags: Set<string> = new Set();
 
   constructor(
     private elementRef: ElementRef,
@@ -38,6 +45,9 @@ export class ProjectsCardComponent implements OnInit {
       }));
   
       console.log('Component projects:', this.projectList);
+
+      this.maintags = await this.supabaseService.getUniqueMaintags();
+      this.tags = await this.supabaseService.getUniqueTags();
     } catch (error) {
       console.error('Error loading projects:', error);
     }
@@ -61,18 +71,62 @@ export class ProjectsCardComponent implements OnInit {
     if (this.sortByOption === 'option0') {
       // Sort by id
       this.projectList.sort((a, b) => a.id - b.id);
+      this.projectTagList.sort((a, b) => a.id - b.id);
     } else if (this.sortByOption === 'option1') {
       // Sort by newest first
       this.projectList.sort((a, b) => b.latestUpdate.getTime() - a.latestUpdate.getTime());
+      this.projectTagList.sort((a, b) => b.latestUpdate.getTime() - a.latestUpdate.getTime());
     } else if (this.sortByOption === 'option2') {
       // Sort by oldest first
       this.projectList.sort((a, b) => a.latestUpdate.getTime() - b.latestUpdate.getTime());
+      this.projectTagList.sort((a, b) => a.latestUpdate.getTime() - b.latestUpdate.getTime());
     }
 
     this.projectList = [...this.projectList]; // Trigger change detection by creating a new array
+    this.projectTagList = [...this.projectTagList];
   }
 
   isOdd(index: number): boolean {
     return index % 2 === 0; // Returns true for odd indexes (0-based)
   }
+
+  onPanelOpened() {
+    this.isTagPanelOpen = true;
+  }
+
+  onPanelClosed() {
+    this.isTagPanelOpen = false;
+  }
+
+  isTagSelected(tag: string): boolean {
+    return this.selectedTags.has(tag);
+  }
+  
+  selectTag(tag: string): void {
+    if (this.selectedTags.has(tag)) {
+      //delete tag from list
+      this.selectedTags.delete(tag);
+    } else {
+      //add tag to list
+      this.selectedTags.add(tag);
+    }
+
+
+    //recalculate which projects should be added to projectTagList ...
+    this.updateProjectTagList();
+
+  }
+
+  updateProjectTagList(): void {
+
+      // Filter projects based on selected tags
+      this.projectTagList = this.projectList.filter(project =>
+        // Check if project has a selected maintag or any of the tags
+        this.selectedTags.has(project.maintag) || 
+        project.tags.some((tag: string) => this.selectedTags.has(tag))
+      );
+  }
+
+
+
 }
