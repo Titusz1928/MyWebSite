@@ -13,6 +13,8 @@ export class ProjectDetailComponent implements OnInit {
   project: any;
   nrOfImages: number = 0; // Initialize nrOfImages with 0 initially
 
+  defaultImage = 'assets/projects/nimg.png';
+
   constructor(
     private route: ActivatedRoute,
     private projectService: ProjectService,

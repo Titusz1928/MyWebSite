@@ -15,7 +15,7 @@
             <mat-card-title>{{ project.title }}</mat-card-title>
             <mat-card-subtitle>{{ project.maintag }}</mat-card-subtitle>
           </mat-card-header>
-          <img class="project-card-image" [src]="project.image" alt="Project Image">
+          <img class="project-card-image" [src]="project.image ? project.image : defaultImage"  alt="Project Image">
           <mat-card-content>
             <p>{{ project.shortdescription }}</p>
             <mat-chip-list>

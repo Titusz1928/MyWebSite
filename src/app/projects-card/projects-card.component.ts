@@ -14,6 +14,8 @@ export class ProjectsCardComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'latestUpdate'];
   sortByOption: string = '';
 
+  defaultImage = 'assets/projects/nimg.png';
+
   maintags: string[] = [];
   tags: string[] = [];
 

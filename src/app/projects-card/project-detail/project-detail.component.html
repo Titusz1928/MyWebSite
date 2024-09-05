@@ -7,7 +7,9 @@
     </mat-card-header>
     <hr>
     <div class="main-image">
-        <img mat-card-image src={{project.image}} alt="Photo">
+      <img mat-card-image 
+      [src]="project.image ? project.image : defaultImage" 
+      alt="Project Image">
       </div>
       <mat-paginator [length]="nrOfImages"
       [pageSize]="1"
@@ -24,8 +26,9 @@
         <div class="description">
         {{project?.description}}
         </div>
-        <br>
+        <hr>
         <a *ngIf="project.link!=''" href={{project.link}}>Find out more</a>
+        <br>
         <br>
         <mat-chip-list>
           <mat-chip *ngFor="let tag of project.tags" [selectable]="false">

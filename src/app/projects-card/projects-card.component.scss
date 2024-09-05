@@ -45,6 +45,7 @@
   box-sizing: border-box;
   max-width: 300px; /* Limit max width of each card */
   border: 5px solid rgba(12, 11, 102, 0.9);
+  cursor: pointer;
 }
 
 .project-card-image {
@@ -60,6 +61,7 @@
 .projects-table {
   width: 100%;
   border-collapse: collapse;
+  cursor: pointer;
 }
 
 .projects-table th, .projects-table td {

@@ -1,5 +1,8 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { DarkmodeService } from '../services/darkmode.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AdminDialogComponent } from './admin-dialog/admin-dialog.component';
+import { AdminModeService } from '../services/admin-mode.service';
 
 @Component({
   selector: 'cvapp-bottom-bar',
@@ -13,10 +16,11 @@ export class BottomBarComponent implements OnInit {
   date: string = "2024.06.28";
   
   darkMode = false;
+  isAdmin:boolean=false;
 
   @HostBinding('class') activeThemeClass: string = 'light-mode';
 
-  constructor(public darkModeService:DarkmodeService) { }
+  constructor(private dialog: MatDialog, public darkModeService:DarkmodeService, private AdminModeService:AdminModeService) { }
 
   ngOnInit(): void {
     // Retrieve dark mode preference from localStorage (if used)
@@ -41,6 +45,22 @@ export class BottomBarComponent implements OnInit {
   toggleDarkMode() {
     this.darkModeService.toggleDarkMode();
     this.changeState();
+  }
+
+  handleClick(){
+    if(this.isAdmin){
+      this.isAdmin=false;
+    }else{
+      const dialogRef = this.dialog.open(AdminDialogComponent);
+
+      dialogRef.afterClosed().subscribe((result: boolean | undefined) => {
+        // Update the component's canEdit property
+        this.isAdmin = result === true;
+        this.AdminModeService.setCanEdit(this.isAdmin); // Update the service with the new value
+        console.log('The dialog was closed');
+        console.log('canEdit:', this.isAdmin);
+      });
+    }
   }
 
 }
